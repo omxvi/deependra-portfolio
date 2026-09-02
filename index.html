@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deependra Singh Shekhawat | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#05070d;
+    --bg2:#0a0e18;
+    --card:rgba(255,255,255,.055);
+    --border:rgba(255,255,255,.11);
+    --text:#f5f7ff;
+    --muted:#9ba4b8;
+    --accent:#6c63ff;
+    --accent2:#00d9ff;
+    --max:1200px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+      radial-gradient(circle at 10% 10%,rgba(108,99,255,.15),transparent 28%),
+      radial-gradient(circle at 90% 30%,rgba(0,217,255,.10),transparent 25%),
+      var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.12;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:70px 70px;
+    mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(var(--max),90%);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+    position:relative;
+}
+
+/* ================= CURSOR ================= */
+
+.cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:1px solid var(--accent2);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    transition:.08s;
+}
+
+.cursor-dot{
+    position:fixed;
+    width:5px;
+    height:5px;
+    background:var(--accent2);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:20px 0;
+    transition:.4s;
+}
+
+nav.scrolled{
+    background:rgba(5,7,13,.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+    width:min(var(--max),90%);
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:"Space Grotesk";
+    font-size:24px;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--accent2);
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#cbd0dd;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:100px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    align-items:center;
+    gap:60px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 15px;
+    border:1px solid var(--border);
+    border-radius:100px;
+    background:rgba(255,255,255,.04);
+    color:#cbd0dd;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.badge i{
+    width:7px;
+    height:7px;
+    background:#35e58a;
+    border-radius:50%;
+    box-shadow:0 0 12px #35e58a;
+}
+
+.hero h1{
+    font-family:"Space Grotesk";
+    font-size:clamp(48px,7vw,90px);
+    line-height:.95;
+    letter-spacing:-4px;
+    margin-bottom:25px;
+}
+
+.gradient-text{
+    background:linear-gradient(90deg,#fff,var(--accent2),var(--accent));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.typing{
+    color:var(--accent2);
+    font-weight:700;
+}
+
+.hero-description{
+    max-width:620px;
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 22px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    font-weight:600;
+    font-size:14px;
+    transition:.35s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--accent),#8a7cff);
+    border:none;
+    box-shadow:0 10px 35px rgba(108,99,255,.25);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.btn-secondary:hover{
+    border-color:var(--accent2);
+}
+
+/* PHOTO */
+
+.photo-area{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.photo-ring{
+    width:430px;
+    height:430px;
+    border-radius:50%;
+    padding:8px;
+    background:conic-gradient(
+        from 0deg,
+        var(--accent),
+        var(--accent2),
+        transparent,
+        var(--accent)
+    );
+    animation:spin 8s linear infinite;
+    box-shadow:0 0 80px rgba(108,99,255,.22);
+}
+
+.photo-inner{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    overflow:hidden;
+    background:#080b13;
+    border:8px solid #080b13;
+    animation:counterspin 8s linear infinite;
+}
+
+.photo-inner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.orbit{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px dashed rgba(255,255,255,.15);
+    border-radius:50%;
+    animation:spin 15s linear infinite;
+}
+
+.orbit::before{
+    content:"";
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:var(--accent2);
+    border-radius:50%;
+    top:30px;
+    left:50%;
+    box-shadow:0 0 25px var(--accent2);
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+@keyframes counterspin{
+    to{transform:rotate(-360deg)}
+}
+
+.floating-card{
+    position:absolute;
+    padding:14px 18px;
+    background:rgba(10,14,24,.8);
+    border:1px solid var(--border);
+    backdrop-filter:blur(14px);
+    border-radius:14px;
+    font-size:13px;
+    animation:float 4s ease-in-out infinite;
+}
+
+.card-one{
+    left:-10px;
+    bottom:60px;
+}
+
+.card-two{
+    right:-10px;
+    top:60px;
+    animation-delay:1.5s;
+}
+
+@keyframes float{
+    50%{transform:translateY(-15px)}
+}
+
+/* ================= SECTION TITLES ================= */
+
+.section-title{
+    margin-bottom:55px;
+}
+
+.section-title small{
+    color:var(--accent2);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+}
+
+.section-title h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(35px,5vw,55px);
+    margin-top:10px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.glass{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:35px;
+    backdrop-filter:blur(12px);
+    transition:.4s;
+}
+
+.glass:hover{
+    transform:translateY(-7px);
+    border-color:rgba(0,217,255,.3);
+}
+
+.about-text{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.stat{
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:rgba(255,255,255,.03);
+}
+
+.stat h3{
+    font-size:36px;
+    font-family:"Space Grotesk";
+}
+
+.stat p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:20px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(var(--accent),var(--accent2),transparent);
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:65px;
+    margin-bottom:45px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:13px;
+    top:5px;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:var(--accent2);
+    box-shadow:0 0 20px var(--accent2);
+}
+
+.timeline-card h3{
+    font-size:23px;
+    margin-bottom:5px;
+}
+
+.company{
+    color:var(--accent2);
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.timeline-card p,
+.timeline-card li{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.timeline-card ul{
+    padding-left:18px;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.skill{
+    padding:25px;
+    text-align:center;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:18px;
+    transition:.4s;
+}
+
+.skill:hover{
+    transform:translateY(-8px) scale(1.02);
+    border-color:var(--accent2);
+    box-shadow:0 15px 40px rgba(0,217,255,.08);
+}
+
+.skill-icon{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.skill h3{
+    font-size:15px;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+}
+
+.project::after{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:var(--accent);
+    filter:blur(100px);
+    opacity:.12;
+    right:-80px;
+    bottom:-80px;
+}
+
+.project-number{
+    color:var(--accent2);
+    font-family:"Space Grotesk";
+    font-size:14px;
+}
+
+.project h3{
+    font-size:25px;
+    margin:18px 0 12px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:20px;
+}
+
+.tag{
+    font-size:11px;
+    padding:7px 10px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    color:#bfc7d8;
+}
+
+/* ================= EDUCATION ================= */
+
+.education{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    text-align:center;
+    padding-bottom:60px;
+}
+
+.contact-box{
+    max-width:850px;
+    margin:auto;
+}
+
+.contact-box h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(40px,6vw,70px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.contact-box p{
+    color:var(--muted);
+    max-width:600px;
+    margin:0 auto 30px;
+    line-height:1.8;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.contact-link{
+    padding:12px 18px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    transition:.3s;
+}
+
+.contact-link:hover{
+    border-color:var(--accent2);
+    transform:translateY(-3px);
+}
+
+footer{
+    border-top:1px solid var(--border);
+    padding:25px;
+    text-align:center;
+    color:#687186;
+    font-size:12px;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= PARTICLES ================= */
+
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .hero-grid,
+    .about-grid,
+    .education{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .photo-area{
+        margin-top:40px;
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .photo-ring{
+        width:330px;
+        height:330px;
+    }
+
+    .orbit{
+        width:390px;
+        height:390px;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:75px;
+        right:5%;
+        width:220px;
+        padding:20px;
+        flex-direction:column;
+        gap:20px;
+        background:rgba(5,7,13,.95);
+        border:1px solid var(--border);
+        border-radius:15px;
+        transform:translateY(-20px);
+        opacity:0;
+        pointer-events:none;
+        transition:.3s;
+    }
+
+    .nav-links.open{
+        opacity:1;
+        transform:translateY(0);
+        pointer-events:auto;
+    }
+
+    .menu{
+        display:block;
+    }
+}
+
+@media(max-width:500px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero h1{
+        font-size:47px;
+        letter-spacing:-2px;
+    }
+
+    .skills-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .glass{
+        padding:25px;
+    }
+
+    .photo-ring{
+        width:270px;
+        height:270px;
+    }
+
+    .orbit{
+        width:315px;
+        height:315px;
+    }
+
+    .floating-card{
+        font-size:11px;
+        padding:10px;
+    }
+
+    .card-one{
+        left:0;
+    }
+
+    .card-two{
+        right:0;
+    }
+
+    .cursor,
+    .cursor-dot{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+
+<!-- NAVIGATION -->
+
+<nav id="navbar">
+<div class="nav-inner">
+
+<div class="logo">
+D<span>S</span>.
+</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="menu" id="menu">☰</div>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="badge">
+<i></i>
+Available for Opportunities
+</div>
+
+<h1>
+Hi, I'm<br>
+<span class="gradient-text">Deependra</span>
+</h1>
+
+<h2>
+I'm a <span class="typing"></span>
+</h2>
+
+<p class="hero-description">
+MIS Executive focused on data management, reporting,
+workforce coordination and smart metering operations.
+I turn complex operational data into clear and useful insights.
+</p>
+
+<div class="buttons">
+
+<a href="#experience" class="btn btn-primary">
+Explore My Work →
+</a>
+
+<a href="resume.pdf" download class="btn btn-secondary">
+Download Resume ↓
+</a>
+
+</div>
+
+</div>
+
+
+<div class="photo-area reveal">
+
+<div class="orbit"></div>
+
+<div class="photo-ring">
+<div class="photo-inner">
+<img src="profile.jpg" alt="Deependra Singh Shekhawat">
+</div>
+</div>
+
+<div class="floating-card card-one">
+📊 MIS & Data
+</div>
+
+<div class="floating-card card-two">
+⚡ Smart Metering
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title reveal">
+<small>01 — About Me</small>
+<h2>Behind the Data.</h2>
+</div>
+
+<div class="about-grid">
+
+<div class="glass reveal">
+
+<p class="about-text">
+I am <strong>Deependra Singh Shekhawat</strong>, an MIS Executive
+working in the smart metering domain. My work involves daily
+planning, data management, workforce coordination, reporting
+and operational follow-ups.
+<br><br>
+I enjoy working with data, building efficient reporting systems
+and using technology to make day-to-day operations simpler,
+faster and more accurate.
+</p>
+
+</div>
+
+<div class="stats reveal">
+
+<div class="stat">
+<h3 class="counter" data-target="5">0</h3>
+<p>+ Years Experience</p>
+</div>
+
+<div class="stat">
+<h3 class="counter" data-target="4">0</h3>
+<p>Circles Managed</p>
+</div>
+
+<div class="stat">
+<h3 class="counter" data-target="65">0</h3>
+<p>Team Coordination</p>
+</div>
+
+<div class="stat">
+<h3 class="counter" data-target="10">0</h3>
+<p>+ Tools & Skills</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<div class="container">
+
+<div class="section-title reveal">
+<small>02 — Experience</small>
+<h2>My Journey.</h2>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="glass timeline-card">
+
+<h3>MIS Executive</h3>
+
+<div class="company">
+Genus Power Infrastructure Ltd. · Dec 2025 — Present
+</div>
+
+<ul>
+<li>Daily planning and monitoring of Bikaner, Sri Ganganagar, Churu and Hanumangarh circles.</li>
+<li>Preparation and management of MIS reports and operational data.</li>
+<li>Workforce management using Genus WFM application.</li>
+<li>Team coordination, CI/DI data preparation and daily follow-ups.</li>
+<li>Preparation and issuance of hindrance and ROW letters.</li>
+<li>Monitoring smart meter installation and project-related activities.</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="glass timeline-card">
+
+<h3>Telecom Operations & Sales</h3>
+
+<div class="company">
+Reliance Jio · Previous Experience
+</div>
+
+<ul>
+<li>Managed Jio Point and Jio Partners across multiple towns.</li>
+<li>Coordinated with DRS teams and field operations.</li>
+<li>Managed sales and service teams.</li>
+<li>Visited sites for technical and customer service issues.</li>
+<li>Handled team coordination and operational reporting.</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-title reveal">
+<small>03 — Expertise</small>
+<h2>Tools I Work With.</h2>
+</div>
+
+<div class="skills-grid">
+
+<div class="skill reveal">
+<div class="skill-icon">📊</div>
+<h3>Advanced Excel</h3>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">📈</div>
+<h3>Power BI</h3>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">📉</div>
+<h3>Tableau</h3>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">⚙️</div>
+<h3>SAP</h3>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">💼</div>
+<h3>Tally</h3>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">👥</div>
+<h3>WFM</h3>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">🗃️</div>
+<h3>Data Management</h3>
+</div>
+
+<div class="skill reveal">
+<div class="skill-icon">🤝</div>
+<h3>Team Coordination</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-title reveal">
+<small>04 — Selected Work</small>
+<h2>What I Do.</h2>
+</div>
+
+<div class="projects">
+
+<div class="glass project reveal">
+
+<div class="project-number">01 / SMART METERING</div>
+
+<h3>Smart Meter Project</h3>
+
+<p>
+Operational coordination and MIS management for smart meter
+installation activities, including planning, workforce tracking,
+field data and daily reporting.
+</p>
+
+<div class="tags">
+<span class="tag">MIS</span>
+<span class="tag">WFM</span>
+<span class="tag">Smart Meter</span>
+<span class="tag">Reporting</span>
+</div>
+
+</div>
+
+
+<div class="glass project reveal">
+
+<div class="project-number">02 / DATA</div>
+
+<h3>MIS & Reporting</h3>
+
+<p>
+Creating structured reports, tracking daily performance,
+maintaining operational data and converting raw information
+into useful management insights.
+</p>
+
+<div class="tags">
+<span class="tag">Excel</span>
+<span class="tag">Power BI</span>
+<span class="tag">Data Analysis</span>
+<span class="tag">Dashboard</span>
+</div>
+
+</div>
+
+
+<div class="glass project reveal">
+
+<div class="project-number">03 / OPERATIONS</div>
+
+<h3>Workforce Coordination</h3>
+
+<p>
+Managing workforce-related information, material issuance,
+team follow-ups and field activity coordination using
+digital workflows.
+</p>
+
+<div class="tags">
+<span class="tag">WFM</span>
+<span class="tag">Operations</span>
+<span class="tag">Team Management</span>
+</div>
+
+</div>
+
+
+<div class="glass project reveal">
+
+<div class="project-number">04 / DOCUMENTATION</div>
+
+<h3>Project Documentation</h3>
+
+<p>
+Preparation of official communication, hindrance letters,
+ROW documentation and project-related reports for field
+operations.
+</p>
+
+<div class="tags">
+<span class="tag">Documentation</span>
+<span class="tag">MIS</span>
+<span class="tag">Coordination</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title reveal">
+<small>05 — Education</small>
+<h2>Academic Background.</h2>
+</div>
+
+<div class="education">
+
+<div class="glass reveal">
+
+<h3>M.Sc. Computer Science</h3>
+
+<p style="color:var(--muted);margin-top:12px;line-height:1.7;">
+Computer Science background with interest in data,
+technology, analytics and business operations.
+</p>
+
+</div>
+
+<div class="glass reveal">
+
+<h3>Professional Development</h3>
+
+<p style="color:var(--muted);margin-top:12px;line-height:1.7;">
+Continuously developing skills in Excel, Power BI,
+data analytics, reporting and modern business tools.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-box reveal">
+
+<small style="color:var(--accent2);letter-spacing:3px;">
+06 — CONTACT
+</small>
+
+<h2>
+Let's build something
+<span class="gradient-text">better.</span>
+</h2>
+
+<p>
+Have an opportunity, project or just want to connect?
+Feel free to reach out.
+</p>
+
+<div class="contact-links">
+
+<a class="contact-link" href="mailto:yourmail@gmail.com">
+✉ Email
+</a>
+
+<a class="contact-link" href="#">
+in LinkedIn
+</a>
+
+<a class="contact-link" href="tel:+91XXXXXXXXXX">
+☎ Contact
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 Deependra Singh Shekhawat · Designed & Built with passion.
+</footer>
+
+
+<script>
+
+/* ================= TYPING ================= */
+
+const words=[
+    "MIS Executive",
+    "Data Professional",
+    "Operations Specialist",
+    "Smart Metering Professional"
+];
+
+let wordIndex=0;
+let charIndex=0;
+let deleting=false;
+
+const typing=document.querySelector(".typing");
+
+function typeEffect(){
+
+    const current=words[wordIndex];
+
+    if(!deleting){
+        typing.textContent=current.substring(0,charIndex+1);
+        charIndex++;
+
+        if(charIndex===current.length){
+            deleting=true;
+            setTimeout(typeEffect,1300);
+            return;
+        }
+
+    }else{
+
+        typing.textContent=current.substring(0,charIndex-1);
+        charIndex--;
+
+        if(charIndex===0){
+            deleting=false;
+            wordIndex=(wordIndex+1)%words.length;
+        }
+    }
+
+    setTimeout(typeEffect,deleting?45:90);
+}
+
+typeEffect();
+
+
+/* ================= NAV ================= */
+
+const navbar=document.getElementById("navbar");
+
+window.addEventListener("scroll",()=>{
+
+    navbar.classList.toggle(
+        "scrolled",
+        window.scrollY>50
+    );
+
+});
+
+
+/* ================= MOBILE MENU ================= */
+
+const menu=document.getElementById("menu");
+const navLinks=document.getElementById("navLinks");
+
+menu.addEventListener("click",()=>{
+    navLinks.classList.toggle("open");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("open");
+    });
+});
+
+
+/* ================= REVEAL ================= */
+
+const reveals=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(
+(entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("active");
+        }
+    });
+},
+{
+    threshold:.12
+});
+
+reveals.forEach(el=>observer.observe(el));
+
+
+/* ================= COUNTERS ================= */
+
+const counters=document.querySelectorAll(".counter");
+
+const counterObserver=new IntersectionObserver(
+(entries)=>{
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            const counter=entry.target;
+            const target=+counter.dataset.target;
+
+            let count=0;
+
+            const update=()=>{
+
+                const increment=Math.ceil(target/50);
+
+                count+=increment;
+
+                if(count>=target){
+                    counter.textContent=target;
+                }else{
+                    counter.textContent=count;
+                    requestAnimationFrame(update);
+                }
+
+            };
+
+            update();
+            counterObserver.unobserve(counter);
+        }
+
+    });
+},
+{
+    threshold:.8
+});
+
+counters.forEach(counter=>counterObserver.observe(counter));
+
+
+/* ================= CUSTOM CURSOR ================= */
+
+const cursor=document.querySelector(".cursor");
+const dot=document.querySelector(".cursor-dot");
+
+document.addEventListener("mousemove",e=>{
+
+    cursor.style.left=e.clientX+"px";
+    cursor.style.top=e.clientY+"px";
+
+    dot.style.left=e.clientX+"px";
+    dot.style.top=e.clientY+"px";
+
+});
+
+
+/* ================= PARTICLES ================= */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+let particles=[];
+
+function resizeCanvas(){
+
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener("resize",resizeCanvas);
+
+
+class Particle{
+
+    constructor(){
+
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+
+        this.vx=(Math.random()-.5)*.4;
+        this.vy=(Math.random()-.5)*.4;
+
+        this.size=Math.random()*1.7+.5;
+
+    }
+
+    update(){
+
+        this.x+=this.vx;
+        this.y+=this.vy;
+
+        if(this.x<0||this.x>canvas.width)
+            this.vx*=-1;
+
+        if(this.y<0||this.y>canvas.height)
+            this.vy*=-1;
+
+    }
+
+    draw(){
+
+        ctx.beginPath();
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle="rgba(120,180,255,.55)";
+        ctx.fill();
+
+    }
+
+}
+
+
+for(let i=0;i<90;i++){
+    particles.push(new Particle());
+}
+
+
+function animateParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach(p=>{
+        p.update();
+        p.draw();
+    });
+
+
+    for(let i=0;i<particles.length;i++){
+
+        for(let j=i+1;j<particles.length;j++){
+
+            const dx=particles[i].x-particles[j].x;
+            const dy=particles[i].y-particles[j].y;
+
+            const distance=Math.sqrt(dx*dx+dy*dy);
+
+            if(distance<110){
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    particles[i].x,
+                    particles[i].y
+                );
+
+                ctx.lineTo(
+                    particles[j].x,
+                    particles[j].y
+                );
+
+                ctx.strokeStyle=
+                    `rgba(100,150,255,${.09*(1-distance/110)})`;
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+    requestAnimationFrame(animateParticles);
+
+}
+
+animateParticles();
+
+
+/* ================= PHOTO PARALLAX ================= */
+
+const photo=document.querySelector(".photo-ring");
+
+document.addEventListener("mousemove",e=>{
+
+    if(window.innerWidth<900)return;
+
+    const x=(window.innerWidth/2-e.clientX)/40;
+    const y=(window.innerHeight/2-e.clientY)/40;
+
+    photo.style.transform=
+        `rotateY(${x}deg) rotateX(${y}deg)`;
+
+});
+
+</script>
+
+</body>
+</html>
